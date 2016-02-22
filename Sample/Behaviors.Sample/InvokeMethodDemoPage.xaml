@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Behaviors.Sample" xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors" x:Class="Behaviors.Sample.InvokeMethodDemoPage" x:Name="page" Title="InvokeMethod Demo" Icon="xaml.png">
+	<StackLayout Padding="0,20,0,0">
+		<StackLayout.BindingContext>
+			<local:InvokeMethodDemoPageViewModel />
+		</StackLayout.BindingContext>
+		<Label Text="Invoke a Method when Event Fires" FontAttributes="Bold" HorizontalOptions="Center" />
+		<StackLayout>
+			<StackLayout Orientation="Horizontal">
+				<Label Text="ViewModel counter is:" />
+				<Label Text="{Binding Counter}" />
+			</StackLayout>
+			<Button Text="Invoke ViewModel Method">
+				<Button.Behaviors>
+					<behaviors:EventHandlerBehavior EventName="Clicked">
+						<behaviors:InvokeMethodAction TargetObject="{Binding}" MethodName="IncrementCounter" />
+					</behaviors:EventHandlerBehavior>
+				</Button.Behaviors>
+			</Button>
+		</StackLayout>
+		<StackLayout BindingContext="{x:Reference page}">
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Page counter is:" />
+				<Label Text="{Binding Counter}" />
+			</StackLayout>
+			<Button Text="Invoke Page Method">
+				<Button.Behaviors>
+					<behaviors:EventHandlerBehavior EventName="Clicked">
+						<behaviors:InvokeMethodAction TargetObject="{Binding}" MethodName="OnButtonClicked" />
+					</behaviors:EventHandlerBehavior>
+				</Button.Behaviors>
+			</Button>
+		</StackLayout>
+		<local:Separator />
+		<StackLayout BindingContext="{x:Reference page}">
+			<Label Text="Invoke a Method when Data Changes" FontAttributes="Bold" HorizontalOptions="Center" />
+			<Label Text="Select an item in the picker to invoke a page method" />
+			<Picker x:Name="picker" Title="Colours">
+				<Picker.Items>
+					<x:String>Red</x:String>
+					<x:String>Blue</x:String>
+					<x:String>Green</x:String>
+				</Picker.Items>
+				<Picker.Behaviors>
+					<behaviors:DataChangedBehavior Binding="{Binding Path=SelectedIndex, Source={x:Reference picker}}" ComparisonCondition="NotEqual" Value="-1">
+						<behaviors:InvokeMethodAction TargetObject="{Binding}" MethodName="OnPickerChanged" />
+					</behaviors:DataChangedBehavior>
+				</Picker.Behaviors>
+			</Picker>
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Selected Item:" />
+				<Label x:Name="selectedItemLabel" />
+			</StackLayout>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

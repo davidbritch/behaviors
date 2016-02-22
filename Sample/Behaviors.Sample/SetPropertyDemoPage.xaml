@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Behaviors.Sample" xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors" x:Class="Behaviors.Sample.SetPropertyDemoPage" Title="Set Property Demo" Icon="xaml.png">
+	<ContentPage.BindingContext>
+		<local:SetPropertyDemoPageViewModel />
+	</ContentPage.BindingContext>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Color x:Key="ColorRed">Red</Color>
+			<Color x:Key="ColorBlue">Blue</Color>
+			<Color x:Key="ColorGreen">Green</Color>
+			<Color x:Key="ColorYellow">Yellow</Color>
+			<Color x:Key="ColorPurple">Purple</Color>
+			<Color x:Key="ColorAqua">Aqua</Color>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<StackLayout Padding="0,20,0,0">
+		<StackLayout>
+			<Label Text="Set Properties when Event Fires" FontAttributes="Bold" HorizontalOptions="Center" />
+			<BoxView x:Name="boxView" Color="Blue" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center" />
+			<Label Text="{Binding MessageText}" />
+			<Button x:Name="button" Text="Change Page and ViewModel Properties">
+				<Button.Behaviors>
+					<behaviors:EventHandlerBehavior EventName="Clicked">
+						<behaviors:SetPropertyAction TargetObject="{x:Reference boxView}" PropertyName="Color" Value="{StaticResource ColorRed}" />
+						<behaviors:SetPropertyAction TargetObject="{Binding}" PropertyName="MessageText" Value="Message text changed" />
+						<behaviors:SetPropertyAction TargetObject="{x:Reference button}" PropertyName="IsEnabled" Value="false" />
+					</behaviors:EventHandlerBehavior>
+				</Button.Behaviors>
+			</Button>
+		</StackLayout>
+		<local:Separator />
+		<StackLayout>
+			<Label Text="Set Properties when Data Changes" FontAttributes="Bold" HorizontalOptions="Center" />
+			<Slider x:Name="slider" Minimum="0" Maximum="100">
+				<Slider.Behaviors>
+					<behaviors:DataChangedBehavior Binding="{Binding Path=Value, Source={x:Reference slider}}" ComparisonCondition="LessThan" Value="1">
+						<behaviors:SetPropertyAction TargetObject="{x:Reference changingBoxView}" PropertyName="Color" Value="{StaticResource ColorAqua}" />
+						<behaviors:SetPropertyAction TargetObject="{Binding}" PropertyName="ColourText" Value="Aqua" />
+					</behaviors:DataChangedBehavior>
+					<behaviors:DataChangedBehavior Binding="{Binding Path=Value, Source={x:Reference slider}}" ComparisonCondition="GreaterThanOrEqual" Value="1">
+						<behaviors:SetPropertyAction TargetObject="{x:Reference changingBoxView}" PropertyName="Color" Value="{StaticResource ColorRed}" />
+						<behaviors:SetPropertyAction TargetObject="{Binding}" PropertyName="ColourText" Value="Red" />
+					</behaviors:DataChangedBehavior>
+					<behaviors:DataChangedBehavior Binding="{Binding Path=Value, Source={x:Reference slider}}" ComparisonCondition="GreaterThanOrEqual" Value="25">
+						<behaviors:SetPropertyAction TargetObject="{x:Reference changingBoxView}" PropertyName="Color" Value="{StaticResource ColorBlue}" />
+						<behaviors:SetPropertyAction TargetObject="{Binding}" PropertyName="ColourText" Value="Blue" />
+					</behaviors:DataChangedBehavior>
+					<behaviors:DataChangedBehavior Binding="{Binding Path=Value, Source={x:Reference slider}}" ComparisonCondition="GreaterThanOrEqual" Value="50">
+						<behaviors:SetPropertyAction TargetObject="{x:Reference changingBoxView}" PropertyName="Color" Value="{StaticResource ColorGreen}" />
+						<behaviors:SetPropertyAction TargetObject="{Binding}" PropertyName="ColourText" Value="Green" />
+					</behaviors:DataChangedBehavior>
+					<behaviors:DataChangedBehavior Binding="{Binding Path=Value, Source={x:Reference slider}}" ComparisonCondition="GreaterThanOrEqual" Value="75">
+						<behaviors:SetPropertyAction TargetObject="{x:Reference changingBoxView}" PropertyName="Color" Value="{StaticResource ColorYellow}" />
+						<behaviors:SetPropertyAction TargetObject="{Binding}" PropertyName="ColourText" Value="Yellow" />
+					</behaviors:DataChangedBehavior>
+					<behaviors:DataChangedBehavior Binding="{Binding Path=Value, Source={x:Reference slider}}" ComparisonCondition="Equal" Value="100">
+						<behaviors:SetPropertyAction TargetObject="{x:Reference changingBoxView}" PropertyName="Color" Value="{StaticResource ColorPurple}" />
+						<behaviors:SetPropertyAction TargetObject="{Binding}" PropertyName="ColourText" Value="Purple" />
+					</behaviors:DataChangedBehavior>
+				</Slider.Behaviors>
+			</Slider>
+			<BoxView x:Name="changingBoxView" WidthRequest="100" Color="Aqua" HeightRequest="100" HorizontalOptions="Center" />
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Label Text="Slider value:" />
+				<Label BindingContext="{x:Reference slider}" Text="{Binding Value, StringFormat='{0:F0}'}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Label Text="Colour:" />
+				<Label Text="{Binding ColourText}" />
+			</StackLayout>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>
