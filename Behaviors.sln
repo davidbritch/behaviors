@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behaviors.Sample.iOS", "Sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behaviors.Sample.Droid", "Sample\Droid\Behaviors.Sample.Droid.csproj", "{06D10497-AB57-4353-8D65-2EFF5AE04FB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behaviors.Sample.WinPhone81", "Sample\Behaviors.Sample.WinPhone81\Behaviors.Sample.WinPhone81.csproj", "{54381DD6-292C-42FC-AFC1-57221B60DE02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behaviors.Sample.WinPhone81", "Sample\WinPhone81\Behaviors.Sample.WinPhone81.csproj", "{54381DD6-292C-42FC-AFC1-57221B60DE02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

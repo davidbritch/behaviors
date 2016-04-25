@@ -52,6 +52,8 @@
     <Compile Include="Controls\Separator.cs" />
     <Compile Include="InvokeMethodDemoPageViewModel.cs" />
     <Compile Include="SetPropertyDemoPageViewModel.cs" />
+    <Compile Include="Services\IPageDialogService.cs" />
+    <Compile Include="Services\PageDialogService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\Library\Behaviors\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\Library\Behaviors\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

@@ -5,7 +5,7 @@ using Xamarin.Forms;
 namespace Behaviors
 {
 	[ContentProperty ("Actions")]
-	public sealed class DataChangedBehavior : BehaviorBase<View>
+	public sealed class DataChangedBehavior : BehaviorBase<VisualElement>
 	{
 		public static readonly BindableProperty ActionsProperty = BindableProperty.Create ("Actions", typeof(ActionCollection), typeof(DataChangedBehavior), null);
 		public static readonly BindableProperty BindingProperty = BindableProperty.Create ("Binding", typeof(object), typeof(DataChangedBehavior), null, propertyChanged: OnValueChanged);
@@ -38,12 +38,12 @@ namespace Behaviors
 			set { SetValue (ValueProperty, value); }
 		}
 
-		protected override void OnAttachedTo (View bindable)
+		protected override void OnAttachedTo (VisualElement bindable)
 		{
 			base.OnAttachedTo (bindable);
 		}
 
-		protected override void OnDetachingFrom (View bindable)
+		protected override void OnDetachingFrom (VisualElement bindable)
 		{
 			base.OnDetachingFrom (bindable);
 		}

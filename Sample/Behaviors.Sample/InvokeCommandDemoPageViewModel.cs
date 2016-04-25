@@ -7,7 +7,13 @@ namespace Behaviors.Sample
 {
 	public class InvokeCommandDemoPageViewModel : INotifyPropertyChanged
 	{
+		readonly IPageDialogService pageDialogService;
+
 		public List<Person> People { get; private set; }
+
+		public ICommand PageAppearingCommand { get; private set; }
+
+		public ICommand PageDisappearingCommand { get; private set; }
 
 		public ICommand ItemSelectedCommand { get; private set; }
 
@@ -25,15 +31,29 @@ namespace Behaviors.Sample
 
 		public InvokeCommandDemoPageViewModel ()
 		{
+			pageDialogService = new PageDialogService ();
+
 			People = new List<Person> {
 				new Person ("Steve", 21),
 				new Person ("John", 37),
 				new Person ("Tom", 42),
 				new Person ("Lucas", 29)
 			};
+			PageAppearingCommand = new Command (OnPageAppearing);
+			PageDisappearingCommand = new Command (OnPageDisappearing);
 			ItemSelectedCommand = new Command<Person> (OutputItemSelected);
 			OutputAgeCommand = new Command<Person> (OutputAge);
 			OutputMessageCommand = new Command<string> (OutputMessage);
+		}
+
+		void OnPageAppearing ()
+		{
+			pageDialogService.DisplayAlert ("Invoke Command Demo Page", "Appearing event fired.", "OK");
+		}
+
+		void OnPageDisappearing ()
+		{
+			pageDialogService.DisplayAlert ("Invoke Command Demo Page", "Disappearing event fired.", "OK");
 		}
 
 		void OutputItemSelected (Person person)

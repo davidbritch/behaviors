@@ -8,6 +8,14 @@
 			<local:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
 		</ResourceDictionary>
 	</ContentPage.Resources>
+	<ContentPage.Behaviors>
+		<behaviors:EventHandlerBehavior EventName="Appearing">
+			<behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
+		</behaviors:EventHandlerBehavior>
+		<behaviors:EventHandlerBehavior EventName="Disappearing">
+			<behaviors:InvokeCommandAction Command="{Binding PageDisappearingCommand}" />
+		</behaviors:EventHandlerBehavior>
+	</ContentPage.Behaviors>
 	<Grid Padding="0,20,0,0">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="0.5*" />
