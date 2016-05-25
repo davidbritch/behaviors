@@ -116,7 +116,7 @@ namespace Behaviors
 			return false;
 		}
 
-		static void OnValueChanged (BindableObject bindable, object oldValue, object newValue)
+		static async void OnValueChanged (BindableObject bindable, object oldValue, object newValue)
 		{
 			var behavior = (DataChangedBehavior)bindable;
 			if (behavior.AssociatedObject == null) {
@@ -127,7 +127,7 @@ namespace Behaviors
 				foreach (BindableObject item in behavior.Actions) {
 					item.BindingContext = behavior.BindingContext;
 					IAction action = (IAction)item;
-					action.Execute (bindable, newValue);
+					await action.Execute (bindable, newValue);
 				}
 			}
 		}

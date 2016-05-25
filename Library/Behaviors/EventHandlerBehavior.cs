@@ -72,12 +72,12 @@ namespace Behaviors
 			eventHandler = null;
 		}
 
-		void OnEvent (object sender, object eventArgs)
+		async void OnEvent (object sender, object eventArgs)
 		{
 			foreach (BindableObject bindable in Actions) {
 				bindable.BindingContext = BindingContext;
 				var action = (IAction)bindable;
-				action.Execute (sender, eventArgs);
+				await action.Execute (sender, eventArgs);
 			}
 		}
 

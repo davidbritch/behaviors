@@ -1,7 +1,9 @@
-﻿namespace Behaviors
+﻿using System.Threading.Tasks;
+
+namespace Behaviors
 {
 	public interface IAction
 	{
-		object Execute (object sender, object parameter);
+		Task<bool> Execute (object sender, object parameter);
 	}
 }

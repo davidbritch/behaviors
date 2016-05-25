@@ -3,4 +3,5 @@
 	<local:InvokeCommandDemoPage />
 	<local:InvokeMethodDemoPage />
 	<local:SetPropertyDemoPage />
+	<local:AnimationDemoPage />
 </TabbedPage>

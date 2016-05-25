@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Reflection;
+using System.Threading.Tasks;
 using Xamarin.Forms;
+
+#pragma warning disable 1998
 
 namespace Behaviors
 {
@@ -25,7 +28,7 @@ namespace Behaviors
 			set { SetValue (ValueProperty, value); }
 		}
 
-		public object Execute (object sender, object parameter)
+		public async Task<bool> Execute (object sender, object parameter)
 		{
 			object targetObject;
 			if (TargetObject != null) {

@@ -1,5 +1,8 @@
-﻿using System.Windows.Input;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
+
+#pragma warning disable 1998
 
 namespace Behaviors
 {
@@ -24,7 +27,7 @@ namespace Behaviors
 			set { SetValue (InputConverterProperty, value); }
 		}
 
-		public object Execute (object sender, object parameter)
+		public async Task<bool> Execute (object sender, object parameter)
 		{
 			if (Command == null) {
 				return false;
