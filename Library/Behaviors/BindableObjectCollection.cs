@@ -5,93 +5,102 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+	[Preserve(AllMembers = true)]
 	public class BindableObjectCollection : BindableObject, IList<BindableObject>, INotifyCollectionChanged
 	{
-		List<BindableObject> Items = new List<BindableObject> ();
+		List<BindableObject> Items = new List<BindableObject>();
 
 		public event NotifyCollectionChangedEventHandler CollectionChanged;
 
-		public int IndexOf (BindableObject item)
+		public int IndexOf(BindableObject item)
 		{
-			return Items.IndexOf (item);
+			return Items.IndexOf(item);
 		}
 
-		public void Insert (int index, BindableObject item)
+		public void Insert(int index, BindableObject item)
 		{
-			Items.Insert (index, item);
-			CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Add, item, index));
+			Items.Insert(index, item);
+			CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));
 		}
 
-		public void RemoveAt (int index)
+		public void RemoveAt(int index)
 		{
-			var oldItem = this [index];
-			Items.RemoveAt (index);
-			CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Remove, oldItem, index));
+			var oldItem = this[index];
+			Items.RemoveAt(index);
+			CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, oldItem, index));
 		}
 
-		public BindableObject this [int index] {
-			get {
-				return this [index];
+		public BindableObject this[int index]
+		{
+			get
+			{
+				return this[index];
 			}
-			set {
-				var oldItem = this [index];
-				this [index] = (BindableObject)value;
-				CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Replace, value, oldItem));
+			set
+			{
+				var oldItem = this[index];
+				this[index] = (BindableObject)value;
+				CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, value, oldItem));
 			}
 		}
 
-		public void Add (BindableObject item)
+		public void Add(BindableObject item)
 		{
-			Items.Add (item);
-			CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Add, item, Count - 1));
+			Items.Add(item);
+			CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, Count - 1));
 		}
 
-		public void Clear ()
+		public void Clear()
 		{
-			Items.Clear ();
-			CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Reset));
+			Items.Clear();
+			CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
 		}
 
-		public bool Contains (BindableObject item)
+		public bool Contains(BindableObject item)
 		{
-			return Items.Contains (item);
+			return Items.Contains(item);
 		}
 
-		public void CopyTo (BindableObject[] array, int arrayIndex)
+		public void CopyTo(BindableObject[] array, int arrayIndex)
 		{
-			Items.CopyTo (array, arrayIndex);
+			Items.CopyTo(array, arrayIndex);
 		}
 
-		public bool Remove (BindableObject item)
+		public bool Remove(BindableObject item)
 		{
-			var oldIndex = IndexOf (item);
-			if (Items.Remove (item)) {
-				CollectionChanged (this, new NotifyCollectionChangedEventArgs (NotifyCollectionChangedAction.Remove, item, oldIndex));
+			var oldIndex = IndexOf(item);
+			if (Items.Remove(item))
+			{
+				CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, oldIndex));
 				return true;
 			}
 			return false;
 		}
 
-		public int Count {
-			get {
+		public int Count
+		{
+			get
+			{
 				return Items.Count;
 			}
 		}
 
-		public bool IsReadOnly {
-			get {
+		public bool IsReadOnly
+		{
+			get
+			{
 				return false;
 			}
 		}
 
-		public IEnumerator<BindableObject> GetEnumerator ()
+		public IEnumerator<BindableObject> GetEnumerator()
 		{
-			return Items.GetEnumerator ();
+			return Items.GetEnumerator();
 		}
 
-		IEnumerator IEnumerable.GetEnumerator ()
+		IEnumerator IEnumerable.GetEnumerator()
 		{
-			return GetEnumerator ();
+			return GetEnumerator();
 		}
 	}
 }

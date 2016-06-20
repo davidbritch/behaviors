@@ -5,32 +5,39 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+	[Preserve(AllMembers = true)]
 	public class FadeAction : AnimationBase, IAction
 	{
-		public static readonly BindableProperty FinalOpacityProperty = BindableProperty.Create ("FinalOpacity", typeof(double), typeof(FadeAction), 1.0);
+		public static readonly BindableProperty FinalOpacityProperty = BindableProperty.Create("FinalOpacity", typeof(double), typeof(FadeAction), 1.0);
 
-		public double FinalOpacity {
-			get { return (double)GetValue (FinalOpacityProperty); }
-			set { SetValue (FinalOpacityProperty, value); }
+		public double FinalOpacity
+		{
+			get { return (double)GetValue(FinalOpacityProperty); }
+			set { SetValue(FinalOpacityProperty, value); }
 		}
 
-		public async Task<bool> Execute (object sender, object parameter)
+		public async Task<bool> Execute(object sender, object parameter)
 		{
 			VisualElement element;
-			if (TargetObject != null) {
+			if (TargetObject != null)
+			{
 				element = TargetObject as VisualElement;
-			} else {
+			}
+			else {
 				element = sender as VisualElement;
 			}
 
-			if (element == null) {
+			if (element == null)
+			{
 				return false;
 			}
 
-			if (Await) {
-				await element.FadeTo (FinalOpacity, (uint)Duration, GetEasingFunction ());
-			} else {
-				element.FadeTo (FinalOpacity, (uint)Duration, GetEasingFunction ());
+			if (Await)
+			{
+				await element.FadeTo(FinalOpacity, (uint)Duration, GetEasingFunction());
+			}
+			else {
+				element.FadeTo(FinalOpacity, (uint)Duration, GetEasingFunction());
 			}
 
 			return true;
