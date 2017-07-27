@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\NuGet.Build.Packaging.0.1.248\build\NuGet.Build.Packaging.props" Condition="Exists('..\..\packages\NuGet.Build.Packaging.0.1.248\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -13,6 +14,22 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PackageId>Behaviors.Forms</PackageId>
+    <PackageVersion>1.2.0</PackageVersion>
+    <Authors>David Britch</Authors>
+    <Description>Using behaviors and actions, developers can create a variety of scenarios in XAML that previously required C#.
+
+Based on, and inspired by the Blend SDK behaviours.</Description>
+    <Owners>david.britch</Owners>
+    <PackageProjectUrl>https://github.com/davidbritch/behaviors</PackageProjectUrl>
+    <PackageReleaseNotes>This release marks preserves each type to stop the linker removing types that aren't statically referenced by the calling application.</PackageReleaseNotes>
+    <Summary>Behaviours are attached to a control and listen for something to happen. That something can be an event firing or some data changing.
+
+Actions are invoked by Behaviours and execute on a control.</Summary>
+    <PackageTags>Xamarin Xamarin.Forms EventTriggerBehavior EventHandlerBehavior DataTriggerBehavior DataChangedBehavior InvokeCommandAction InvokeMethodAction SetPropertyAction FadeAction RotateAction ScaleAction TranslateAction</PackageTags>
+    <Title>Behaviors for Xamarin.Forms</Title>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <PackageLicenseUrl>https://github.com/davidbritch/behaviors/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -78,4 +95,5 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
   </Target>
+  <Import Project="..\..\packages\NuGet.Build.Packaging.0.1.248\build\NuGet.Build.Packaging.targets" Condition="Exists('..\..\packages\NuGet.Build.Packaging.0.1.248\build\NuGet.Build.Packaging.targets')" />
 </Project>
