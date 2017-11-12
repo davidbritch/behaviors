@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Library\Behaviors\ActionCollection.cs">
+      <Link>ActionCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\AnimationBase.cs">
+      <Link>AnimationBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\BehaviorBase.cs">
+      <Link>BehaviorBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\BindableObjectCollection.cs">
+      <Link>BindableObjectCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\ComparisonCondition.cs">
+      <Link>ComparisonCondition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\DataChangedBehavior.cs">
+      <Link>DataChangedBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\EasingFunction.cs">
+      <Link>EasingFunction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\EventHandlerBehavior.cs">
+      <Link>EventHandlerBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\FadeAction.cs">
+      <Link>FadeAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\IAction.cs">
+      <Link>IAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\InvokeCommandAction.cs">
+      <Link>InvokeCommandAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\InvokeMethodAction.cs">
+      <Link>InvokeMethodAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\MethodDescriptor.cs">
+      <Link>MethodDescriptor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\PreserveAttribute.cs">
+      <Link>PreserveAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\RotateAction.cs">
+      <Link>RotateAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\RotationAxis.cs">
+      <Link>RotationAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\ScaleAction.cs">
+      <Link>ScaleAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\SetPropertyAction.cs">
+      <Link>SetPropertyAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\TranslateAction.cs">
+      <Link>TranslateAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Library\Behaviors\TypeConverterHelper.cs">
+      <Link>TypeConverterHelper.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Library\Behaviors\packages.config">
+      <Link>packages.config</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.74863" />
+  </ItemGroup>
+</Project>
