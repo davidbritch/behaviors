@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Behaviors.Sample" xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors" x:Class="Behaviors.Sample.SetPropertyDemoPage" Title="Set Property Demo" Icon="xaml.png">
 	<ContentPage.BindingContext>
 		<local:SetPropertyDemoPageViewModel />
@@ -13,7 +13,7 @@
 			<Color x:Key="ColorAqua">Aqua</Color>
 		</ResourceDictionary>
 	</ContentPage.Resources>
-	<StackLayout Padding="0,20,0,0">
+	<StackLayout Margin="20">
 		<StackLayout>
 			<Label Text="Set Properties when Event Fires" FontAttributes="Bold" HorizontalOptions="Center" />
 			<BoxView x:Name="boxView" Color="Blue" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center" />
