@@ -3,7 +3,7 @@
 - Use v1.3.0 of the [NuGet package](https://www.nuget.org/packages/Behaviors.Forms/1.3.0) for apps that use .NET Standard.
 - Use v1.2.0 of the [NuGet package](https://www.nuget.org/packages/Behaviors.Forms/1.2.0) for apps that use PCLs.
 
-## Documentation:
+## Documentation
 
 - [Behaviours Library for Xamarin.Forms](http://www.davidbritch.com/2016/02/behaviours-library-for-xamarinforms_24.html)
 - [EventHandlerBehavior and InvokeCommandAction](http://www.davidbritch.com/2016/02/xamarinforms-behaviors.html)
