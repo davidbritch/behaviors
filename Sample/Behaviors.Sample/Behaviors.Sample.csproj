@@ -3,7 +3,7 @@
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
+      <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\..\Library\Behaviors\Behaviors.csproj" />

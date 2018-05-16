@@ -26,7 +26,7 @@ Actions are invoked by Behaviours and execute on a control.</Summary>
       <CheckForOverflowUnderflow></CheckForOverflowUnderflow>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
-      <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
+      <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
+      <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
     </ItemGroup>
 </Project>
