@@ -11,12 +11,12 @@ namespace Behaviors
 	[Preserve(AllMembers = true)]
 	public class InvokeMethodAction : BindableObject, IAction
 	{
-		Type targetObjectType;
-		MethodDescriptor cachedMethodDescriptor;
-		List<MethodDescriptor> methodDescriptors = new List<MethodDescriptor>();
+		Type _targetObjectType;
+		MethodDescriptor _cachedMethodDescriptor;
+		List<MethodDescriptor> _methodDescriptors = new List<MethodDescriptor>();
 
-		public static readonly BindableProperty MethodNameProperty = BindableProperty.Create("MethodName", typeof(string), typeof(InvokeMethodAction), null, propertyChanged: OnMethodNameChanged);
-		public static readonly BindableProperty TargetObjectProperty = BindableProperty.Create("TargetObject", typeof(object), typeof(InvokeMethodAction), null, propertyChanged: OnTargetObjectChanged);
+		public static readonly BindableProperty MethodNameProperty = BindableProperty.Create(nameof(MethodName), typeof(string), typeof(InvokeMethodAction), null, propertyChanged: OnMethodNameChanged);
+		public static readonly BindableProperty TargetObjectProperty = BindableProperty.Create(nameof(TargetObject), typeof(object), typeof(InvokeMethodAction), null, propertyChanged: OnTargetObjectChanged);
 
 		public string MethodName
 		{
@@ -79,12 +79,12 @@ namespace Behaviors
 
 			if (parameterTypeInfo == null)
 			{
-				return cachedMethodDescriptor;
+				return _cachedMethodDescriptor;
 			}
 
 			MethodDescriptor mostDerivedMethod = null;
 
-			foreach (MethodDescriptor currentMethod in methodDescriptors)
+			foreach (MethodDescriptor currentMethod in _methodDescriptors)
 			{
 				TypeInfo currentTypeInfo = currentMethod.SecondParameterTypeInfo;
 
@@ -97,42 +97,42 @@ namespace Behaviors
 				}
 			}
 
-			return mostDerivedMethod ?? cachedMethodDescriptor;
+			return mostDerivedMethod ?? _cachedMethodDescriptor;
 		}
 
 		void UpdateTargetType(Type newTargetType)
 		{
-			if (newTargetType == targetObjectType)
+			if (newTargetType == _targetObjectType)
 			{
 				return;
 			}
 
-			targetObjectType = newTargetType;
+			_targetObjectType = newTargetType;
 			UpdateMethodDescriptors();
 		}
 
 		void UpdateMethodDescriptors()
 		{
-			methodDescriptors.Clear();
-			cachedMethodDescriptor = null;
+			_methodDescriptors.Clear();
+			_cachedMethodDescriptor = null;
 
-			if (string.IsNullOrWhiteSpace(MethodName) || targetObjectType == null)
+			if (string.IsNullOrWhiteSpace(MethodName) || _targetObjectType == null)
 			{
 				return;
 			}
 
-			foreach (MethodInfo method in targetObjectType.GetRuntimeMethods())
+			foreach (MethodInfo method in _targetObjectType.GetRuntimeMethods())
 			{
 				if (string.Equals(method.Name, MethodName, StringComparison.Ordinal) && method.ReturnType == typeof(void) && method.IsPublic)
 				{
 					var parameters = method.GetParameters();
 					if (parameters.Length == 0)
 					{
-						cachedMethodDescriptor = new MethodDescriptor(method, parameters);
+						_cachedMethodDescriptor = new MethodDescriptor(method, parameters);
 					}
 					else if (parameters.Length == 2 && parameters[0].ParameterType == typeof(object))
 					{
-						methodDescriptors.Add(new MethodDescriptor(method, parameters));
+						_methodDescriptors.Add(new MethodDescriptor(method, parameters));
 					}
 				}
 			}

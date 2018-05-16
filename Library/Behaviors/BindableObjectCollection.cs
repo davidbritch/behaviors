@@ -6,7 +6,7 @@ using Xamarin.Forms;
 namespace Behaviors
 {
 	[Preserve(AllMembers = true)]
-	public class BindableObjectCollection : BindableObject, IList<BindableObject>, INotifyCollectionChanged
+	public class BindableObjectCollection : BindableObject, IEnumerable<BindableObject>, INotifyCollectionChanged
 	{
 		List<BindableObject> Items = new List<BindableObject>();
 

@@ -8,7 +8,7 @@ namespace Behaviors
 	[Preserve(AllMembers = true)]
 	public class FadeAction : AnimationBase, IAction
 	{
-		public static readonly BindableProperty FinalOpacityProperty = BindableProperty.Create("FinalOpacity", typeof(double), typeof(FadeAction), 1.0);
+		public static readonly BindableProperty FinalOpacityProperty = BindableProperty.Create(nameof(FinalOpacity), typeof(double), typeof(FadeAction), 1.0);
 
 		public double FinalOpacity
 		{

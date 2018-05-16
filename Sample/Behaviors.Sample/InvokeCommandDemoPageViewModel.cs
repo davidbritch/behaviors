@@ -43,7 +43,7 @@ namespace Behaviors.Sample
 			PageDisappearingCommand = new Command (OnPageDisappearing);
 			ItemSelectedCommand = new Command<Person> (OutputItemSelected);
 			OutputAgeCommand = new Command<Person> (OutputAge);
-			OutputMessageCommand = new Command<string> (OutputMessage);
+			OutputMessageCommand = new Command (OutputMessage);
 		}
 
 		void OnPageAppearing ()
@@ -58,19 +58,22 @@ namespace Behaviors.Sample
 
 		void OutputItemSelected (Person person)
 		{
-			SelectedItemText = string.Format ("{0} was selected in the list.", person.Name);
+			SelectedItemText = string.Format ("{0} is selected in the list.", person.Name);
 			OnPropertyChanged ("SelectedItemText");
 		}
 
 		void OutputAge (Person person)
 		{
-			AgeText = string.Format ("{0} is {1} years old.", person.Name, person.Age);
-			OnPropertyChanged ("AgeText");
+    		if (person.AgeParameter > person.Age)
+    			AgeText = string.Format("{0} is {1}. That's younger than {2}.", person.Name, person.Age, person.AgeParameter);
+    		else
+    			AgeText = string.Format("{0} is {1}. That's older than {2}.", person.Name, person.Age, person.AgeParameter);
+            OnPropertyChanged ("AgeText");
 		}
 
-		void OutputMessage (string text)
+		void OutputMessage ()
 		{
-			MessageText = string.Format ("Successfully entered {0}", text);
+			MessageText = "Successfully entered text.";
 			OnPropertyChanged ("MessageText");
 		}
 

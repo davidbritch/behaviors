@@ -9,7 +9,14 @@ namespace Behaviors.Sample
 		public object Convert (object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			var eventArgs = value as SelectedItemChangedEventArgs;
-			return eventArgs.SelectedItem;
+			var person = eventArgs.SelectedItem as Person;
+
+			if (parameter != null)
+			{
+				int ageParam = int.Parse(parameter.ToString());
+				person = new Person(person.Name, person.Age, ageParam);          
+			}
+			return person;
 		}
 
 		public object ConvertBack (object value, Type targetType, object parameter, CultureInfo culture)

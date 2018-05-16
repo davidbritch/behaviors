@@ -6,8 +6,7 @@ namespace Behaviors.Sample
 	{
 		public InvokeCommandDemoPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();            
 		}
 	}
 }
-

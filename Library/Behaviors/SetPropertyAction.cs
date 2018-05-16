@@ -10,9 +10,9 @@ namespace Behaviors
 	[Preserve(AllMembers = true)]
 	public sealed class SetPropertyAction : BindableObject, IAction
 	{
-		public static readonly BindableProperty PropertyNameProperty = BindableProperty.Create("PropertyName", typeof(string), typeof(SetPropertyAction), null);
-		public static readonly BindableProperty TargetObjectProperty = BindableProperty.Create("TargetObject", typeof(object), typeof(SetPropertyAction), null);
-		public static readonly BindableProperty ValueProperty = BindableProperty.Create("Value", typeof(object), typeof(SetPropertyAction), null);
+		public static readonly BindableProperty PropertyNameProperty = BindableProperty.Create(nameof(PropertyName), typeof(string), typeof(SetPropertyAction), null);
+		public static readonly BindableProperty TargetObjectProperty = BindableProperty.Create(nameof(TargetObject), typeof(object), typeof(SetPropertyAction), null);
+		public static readonly BindableProperty ValueProperty = BindableProperty.Create(nameof(Value), typeof(object), typeof(SetPropertyAction), null);
 
 		public string PropertyName
 		{

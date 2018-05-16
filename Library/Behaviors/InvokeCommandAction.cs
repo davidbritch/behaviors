@@ -9,10 +9,11 @@ namespace Behaviors
 	[Preserve(AllMembers = true)]
 	public sealed class InvokeCommandAction : BindableObject, IAction
 	{
-		public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(InvokeCommandAction), null);
-		public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(InvokeCommandAction), null);
-		public static readonly BindableProperty InputConverterProperty = BindableProperty.Create("Converter", typeof(IValueConverter), typeof(InvokeCommandAction), null);
-
+		public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(InvokeCommandAction), null);
+		public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create(nameof(CommandParameter), typeof(object), typeof(InvokeCommandAction), null);
+		public static readonly BindableProperty InputConverterProperty = BindableProperty.Create(nameof(Converter), typeof(IValueConverter), typeof(InvokeCommandAction), null);
+		public static readonly BindableProperty InputConverterParameterProperty = BindableProperty.Create(nameof(ConverterParameter), typeof(object), typeof(InvokeCommandAction), null);
+      
 		public ICommand Command
 		{
 			get { return (ICommand)GetValue(CommandProperty); }
@@ -31,6 +32,12 @@ namespace Behaviors
 			set { SetValue(InputConverterProperty, value); }
 		}
 
+        public object ConverterParameter
+		{
+			get { return GetValue(InputConverterParameterProperty); }
+			set { SetValue(InputConverterParameterProperty, value); }
+		}
+              
 		public async Task<bool> Execute(object sender, object parameter)
 		{
 			if (Command == null)
@@ -45,9 +52,10 @@ namespace Behaviors
 			}
 			else if (Converter != null)
 			{
-				resolvedParameter = Converter.Convert(parameter, typeof(object), null, null);
+				resolvedParameter = Converter.Convert(parameter, typeof(object), ConverterParameter, null);
 			}
-			else {
+			else 
+			{
 				resolvedParameter = parameter;
 			}
 

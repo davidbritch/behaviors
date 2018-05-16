@@ -8,7 +8,7 @@ namespace Behaviors.Sample
 	{
 		public App ()
 		{
-			MainPage = new HomePage ();
+			MainPage = new NavigationPage(new MainPage());
 		}
 
 		protected override void OnStart ()

@@ -17,34 +17,41 @@
 		</behaviors:EventHandlerBehavior>
 	</ContentPage.Behaviors>
 	<Grid Margin="20">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="0.5*" />
-			<RowDefinition Height="0.5*" />
-		</Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+             <RowDefinition Height="0.5*" />           
+        </Grid.RowDefinitions>
 		<StackLayout>
 			<Label Text="Invoke Commands when Event Fires" FontAttributes="Bold" HorizontalOptions="Center" />
-			<ListView ItemsSource="{Binding People}">
+			<ListView x:Name="listView" ItemsSource="{Binding People}">
 				<ListView.Behaviors>
 					<behaviors:EventHandlerBehavior EventName="ItemSelected">
-						<behaviors:InvokeCommandAction Command="{Binding ItemSelectedCommand}" Converter="{StaticResource SelectedItemConverter}" />
-						<behaviors:InvokeCommandAction Command="{Binding OutputAgeCommand}" Converter="{StaticResource SelectedItemConverter}" />
-					</behaviors:EventHandlerBehavior>
+                        <behaviors:InvokeCommandAction Command="{Binding ItemSelectedCommand}" Converter="{StaticResource SelectedItemConverter}" />
+                        <behaviors:InvokeCommandAction Command="{Binding OutputAgeCommand}" Converter="{StaticResource SelectedItemConverter}" ConverterParameter="35" />
+                    </behaviors:EventHandlerBehavior>
 				</ListView.Behaviors>
 			</ListView>
+            <Label x:Name="itemSelectedLabel">
+                <Label.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="ItemSelected" SourceObject="{x:Reference listView}">
+                        <behaviors:SetPropertyAction TargetObject="{x:Reference itemSelectedLabel}" PropertyName="Text" Value="Item selected in ListView." />
+                     </behaviors:EventHandlerBehavior>     
+                </Label.Behaviors>
+            </Label>
 			<Label Text="{Binding SelectedItemText}" />
 			<Label Text="{Binding AgeText}" />
-			<local:Separator />
+            <local:Separator />
 		</StackLayout>
 		<StackLayout Grid.Row="1">
 			<Label Text="Invoke Command when Data Changes" FontAttributes="Bold" HorizontalOptions="Center" />
-			<Entry x:Name="entry" Placeholder="Enter Xamarin here">
+			<Entry x:Name="entry" Placeholder="Enter Xamarin (case sensitive) here">
 				<Entry.Behaviors>
 					<behaviors:DataChangedBehavior Binding="{Binding Path=Text, Source={x:Reference entry}}" ComparisonCondition="Equal" Value="Xamarin">
 						<behaviors:InvokeCommandAction Command="{Binding OutputMessageCommand}" CommandParameter="{Binding Path=Text, Source={x:Reference entry}}" />
 					</behaviors:DataChangedBehavior>
 				</Entry.Behaviors>
 			</Entry>
-			<Label Text="{Binding MessageText}" />
+			<Label Text="{Binding MessageText}"/>
 		</StackLayout>
 	</Grid>
 </ContentPage>
