@@ -2,7 +2,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard1.0</TargetFramework>
         <PackageId>Behaviors.Forms</PackageId>
-        <PackageVersion>1.3.0</PackageVersion>
+        <PackageVersion>1.4.0</PackageVersion>
         <Authors>David Britch</Authors>
         <Description>Using behaviors and actions, developers can create a variety of scenarios in XAML that previously required C#.
 
@@ -10,11 +10,11 @@ Based on, and inspired by the Blend SDK behaviours.</Description>
         <PackageLicenseUrl>https://github.com/davidbritch/behaviors/blob/master/LICENSE</PackageLicenseUrl>
         <Owners>david.britch</Owners>
         <PackageProjectUrl>https://github.com/davidbritch/behaviors</PackageProjectUrl>
-        <PackageReleaseNotes>This release retargets the package as a .NET Standard library. Use v1.2 to target PCLs.</PackageReleaseNotes>
+        <PackageReleaseNotes>This release is compatible with Xamarin.Forms 3.</PackageReleaseNotes>
         <Summary>Behaviours are attached to a control and listen for something to happen. That something can be an event firing or some data changing.
 
 Actions are invoked by Behaviours and execute on a control.</Summary>
-        <PackageTags>Xamarin Xamarin.Forms EventTriggerBehavior EventHandlerBehavior DataTriggerBehavior DataChangedBehavior InvokeCommandAction InvokeMethodAction SetPropertyAction FadeAction RotateAction ScaleAction TranslateAction</PackageTags>
+        <PackageTags>Xamarin Xamarin.Forms EventHandlerBehavior DataChangedBehavior InvokeCommandAction InvokeMethodAction SetPropertyAction FadeAction RotateAction ScaleAction TranslateAction GoToStateAction</PackageTags>
         <Title>Behaviors for Xamarin.Forms</Title>
         <PackOnBuild>true</PackOnBuild>
     </PropertyGroup>
