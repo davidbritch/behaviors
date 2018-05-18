@@ -1,111 +1,98 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="..\..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.props')" />
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-        <ProjectGuid>{06D10497-AB57-4353-8D65-2EFF5AE04FB2}</ProjectGuid>
-        <OutputType>Library</OutputType>
-        <RootNamespace>Behaviors.Sample.Droid</RootNamespace>
-        <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-        <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-        <AndroidResgenClass>Resource</AndroidResgenClass>
-        <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
-        <AndroidApplication>True</AndroidApplication>
-        <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-        <AssemblyName>Behaviors.Sample.Droid</AssemblyName>
-        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-        <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
-        <NuGetPackageImportStamp>
-        </NuGetPackageImportStamp>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Debug</OutputPath>
-        <DefineConstants>DEBUG;</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <AndroidLinkMode>None</AndroidLinkMode>
-        <ConsolePause>false</ConsolePause>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <DebugType>full</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\Release</OutputPath>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-        <ConsolePause>false</ConsolePause>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
-        <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Annotations" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Compat" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Core.UI" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Design" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Fragment" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Transition" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.v4" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.v7.Palette" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="25.4.0.2" />
-        <PackageReference Include="Xamarin.Android.Support.Vector.Drawable" Version="25.4.0.2" />
-    </ItemGroup>
-    <ItemGroup>
-        <Reference Include="System" />
-        <Reference Include="System.Xml" />
-        <Reference Include="System.Core" />
-        <Reference Include="Mono.Android" />
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Include="MainActivity.cs" />
-        <Compile Include="Resources\Resource.designer.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="Resources\AboutResources.txt" />
-        <None Include="Properties\AndroidManifest.xml" />
-        <None Include="Assets\AboutAssets.txt" />
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Resources\layout\" />
-        <Folder Include="Resources\values\" />
-    </ItemGroup>
-    <ItemGroup>
-        <AndroidResource Include="Resources\drawable\icon.png" />
-        <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
-        <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
-        <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-        <AndroidResource Include="Resources\drawable\monkey.png" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\Behaviors.Sample\Behaviors.Sample.csproj">
-            <Project>{63211B14-3CEB-4F12-B447-129BD647AADA}</Project>
-            <Name>Behaviors.Sample</Name>
-        </ProjectReference>
-    </ItemGroup>
-    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Core.UI.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.UI.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Core.UI.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.UI.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.Utils.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.Utils.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Media.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Media.Compat.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Media.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Media.Compat.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Fragment.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Fragment.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Fragment.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Fragment.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Transition.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Transition.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Transition.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Transition.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.v4.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v4.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v4.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v4.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.v7.CardView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.CardView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.v7.Palette.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.Palette.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.Palette.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.Palette.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.v7.RecyclerView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.RecyclerView.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.RecyclerView.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.RecyclerView.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Vector.Drawable.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.Design.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Design.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Design.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Design.targets')" />
-    <Import Project="..\..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{06D10497-AB57-4353-8D65-2EFF5AE04FB2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Behaviors.Sample.Droid</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AssemblyName>Behaviors.Sample.Droid</AssemblyName>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Annotations" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Compat" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Core.UI" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Fragment" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Transition" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v7.Palette" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Vector.Drawable" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Forms">
+      <Version>3.0.0.482510</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\monkey.png" />
+    <AndroidResource Include="Resources\layout\Tabbar.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Behaviors.Sample\Behaviors.Sample.csproj">
+      <Project>{63211B14-3CEB-4F12-B447-129BD647AADA}</Project>
+      <Name>Behaviors.Sample</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

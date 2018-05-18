@@ -8,8 +8,8 @@ namespace Behaviors
 	[Preserve(AllMembers = true)]
 	public class ScaleAction : AnimationBase, IAction
 	{
-		public static readonly BindableProperty FinalScaleProperty = BindableProperty.Create("FinalScale", typeof(double), typeof(ScaleAction), 1.0);
-		public static readonly BindableProperty IsRelativeProperty = BindableProperty.Create("IsRelative", typeof(bool), typeof(ScaleAction), false);
+		public static readonly BindableProperty FinalScaleProperty = BindableProperty.Create(nameof(FinalScale), typeof(double), typeof(ScaleAction), 1.0);
+		public static readonly BindableProperty IsRelativeProperty = BindableProperty.Create(nameof(IsRelative), typeof(bool), typeof(ScaleAction), false);
 
 		public double FinalScale
 		{

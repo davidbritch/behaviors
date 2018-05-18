@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Behaviors.Sample" x:Class="Behaviors.Sample.MainPage" Title="Behaviors Demos">
+    <StackLayout Margin="20">
+        <Button Text="Invoking Commands in XAML"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="{x:Type local:InvokeCommandDemoPage}" />
+        <Button Text="Invoking Methods in XAML"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="{x:Type local:InvokeMethodDemoPage}" />
+        <Button Text="Setting Properties in XAML"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="{x:Type local:SetPropertyDemoPage}" />
+        <Button Text="Running Animations in XAML"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="{x:Type local:AnimationDemoPage}" />
+        <Button Text="Going to a VisualState in XAML"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="{x:Type local:GotoStateDemoPage}" /> 
+    </StackLayout>
+</ContentPage>

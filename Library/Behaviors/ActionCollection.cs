@@ -23,10 +23,10 @@ namespace Behaviors
                     ActionCollection.VerifyType(bindable);
                 }
             }
-            else if (collectionChange == NotifyCollectionChangedAction.Replace)
+			else if (collectionChange == NotifyCollectionChangedAction.Replace)
             {
                 BindableObject changed = this[(int)e.NewStartingIndex];
-                ActionCollection.VerifyType(changed);
+				ActionCollection.VerifyType(changed);
             }
         }
 
