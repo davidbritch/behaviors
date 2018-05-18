@@ -47,7 +47,7 @@
 			<Entry x:Name="entry" Placeholder="Enter Xamarin (case sensitive) here">
 				<Entry.Behaviors>
 					<behaviors:DataChangedBehavior Binding="{Binding Path=Text, Source={x:Reference entry}}" ComparisonCondition="Equal" Value="Xamarin">
-						<behaviors:InvokeCommandAction Command="{Binding OutputMessageCommand}" CommandParameter="{Binding Path=Text, Source={x:Reference entry}}" />
+						<behaviors:InvokeCommandAction Command="{Binding OutputMessageCommand}" />
 					</behaviors:DataChangedBehavior>
 				</Entry.Behaviors>
 			</Entry>
