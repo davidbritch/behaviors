@@ -19,3 +19,7 @@
 - [Xamarin.Forms Behaviors: TranslateAction](http://www.davidbritch.com/2016/06/xamarinforms-behaviors-translateaction.html)
 - [Xamarin.Forms Behaviors: ScaleAction](http://www.davidbritch.com/2016/06/xamarinforms-behaviors-scaleaction.html)
 - [Xamarin.Forms Behaviors: RotateAction](http://www.davidbritch.com/2016/07/xamarinforms-behaviors-rotateaction.html)
+- [Behaviors Library 1.4](https://www.davidbritch.com/2018/05/behaviours-library-14.html)
+- [Xamarin.Forms Behaviors: GoToStateAction](https://www.davidbritch.com/2018/05/xamarinforms-behaviors-gotostateaction.html)
+- [Xamarin.Forms Behaviors: EventHandlerBehavior and the SourceObject](https://www.davidbritch.com/2018/06/xamarinforms-behaviors.html)
+- [Xamarin.Forms Behaviors: InvokeCommandAction and ConverterParameter](https://www.davidbritch.com/2018/06/xamarinforms-behaviors_12.html)
