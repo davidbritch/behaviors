@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors" x:Class="Behaviors.Sample.AnimationDemoPage" Title="Animation Demo" Icon="xaml.png">
 	<StackLayout Margin="20">
 		<Image x:Name="image" Source="monkey.png" Opacity="0" VerticalOptions="CenterAndExpand" />
-		<Button Text="Run Animation">
+		<Button x:Name="button" Text="Run Animation">
 			<Button.Behaviors>
 				<behaviors:EventHandlerBehavior EventName="Clicked">
+                    <behaviors:SetPropertyAction TargetObject="{x:Reference button}" PropertyName="IsEnabled" Value="false" />
 					<!-- Compound Animation -->
 					<behaviors:FadeAction TargetObject="{x:Reference image}" FinalOpacity="1.0" Duration="2000" Await="true" />
 					<behaviors:ScaleAction TargetObject="{x:Reference image}" FinalScale="2.0" Duration="3000" EasingFunction="SpringIn" />
 					<behaviors:RotateAction TargetObject="{x:Reference image}" FinalAngle="360" Duration="3000" Await="true" />
 					<behaviors:ScaleAction TargetObject="{x:Reference image}" FinalScale="1.0" Duration="3000" EasingFunction="SpringOut" />
-					<behaviors:RotateAction TargetObject="{x:Reference image}" FinalAngle="360" Duration="3000" IsRelative="true" />
+					<behaviors:RotateAction TargetObject="{x:Reference image}" FinalAngle="360" Duration="3000" IsRelative="true" Await="true" />
 					<!-- Translation Animation -->
 					<!--					<behaviors:FadeAction TargetObject="{x:Reference image}" FinalOpacity="1.0" Duration="2000" Await="true" />
 					<behaviors:TranslateAction TargetObject="{x:Reference image}" X="-100" Y="0" Duration="1000" Await="true" />
@@ -23,6 +24,7 @@
 					<behaviors:RotateAction TargetObject="{x:Reference image}" Duration="600000" FinalAngle="110520" />
 					<behaviors:RotateAction TargetObject="{x:Reference image}" Duration="600000" FinalAngle="90360" Axis="X" />
 					<behaviors:RotateAction TargetObject="{x:Reference image}" Duration="600000" FinalAngle="71640" Axis="Y" />-->
+                    <behaviors:SetPropertyAction TargetObject="{x:Reference button}" PropertyName="IsEnabled" Value="true" />
 				</behaviors:EventHandlerBehavior>
 			</Button.Behaviors>
 		</Button>
