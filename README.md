@@ -1,6 +1,6 @@
 # Behaviors for Xamarin.Forms
 
-- Use v1.4.0 of the [NuGet package](https://www.nuget.org/packages/Behaviors.Forms/1.3.0) for compatibility with Xamarin.Forms 3.0.
+- Use v1.4.0 of the [NuGet package](https://www.nuget.org/packages/Behaviors.Forms/1.4.0) for compatibility with Xamarin.Forms 3.0.
 - Use v1.3.0 of the [NuGet package](https://www.nuget.org/packages/Behaviors.Forms/1.3.0) for apps that use .NET Standard.
 - Use v1.2.0 of the [NuGet package](https://www.nuget.org/packages/Behaviors.Forms/1.2.0) for apps that use PCLs.
 
