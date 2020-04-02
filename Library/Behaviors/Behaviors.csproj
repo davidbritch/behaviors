@@ -2,7 +2,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard1.0</TargetFramework>
         <PackageId>Behaviors.Forms</PackageId>
-        <PackageVersion>1.4.0</PackageVersion>
+        <PackageVersion>1.4.1</PackageVersion>
         <Authors>David Britch</Authors>
         <Description>Using behaviors and actions, developers can create a variety of scenarios in XAML that previously required C#.
 
