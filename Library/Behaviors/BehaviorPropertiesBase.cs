@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Collections.ObjectModel;
+using Xamarin.Forms;
 
 namespace Behaviors
 {
@@ -6,19 +7,19 @@ namespace Behaviors
 	[ContentProperty("Actions")]
 	public class BehaviorPropertiesBase : BehaviorBase<VisualElement>
     {
-		public static readonly BindableProperty ActionsProperty = BindableProperty.Create(nameof(Actions), typeof(ActionCollection), typeof(BehaviorPropertiesBase), null);
+		public static readonly BindableProperty ActionsProperty = BindableProperty.Create(nameof(Actions), typeof(ObservableCollection<IAction>), typeof(BehaviorPropertiesBase), null);
 
-		public ActionCollection Actions
+		public ObservableCollection<IAction> Actions
         {
             get
             {
-                return (ActionCollection)GetValue(ActionsProperty);
+                return (ObservableCollection<IAction>)GetValue(ActionsProperty);
             }
         }
 
         public BehaviorPropertiesBase()
 		{         
-			SetValue(ActionsProperty, new ActionCollection());
+			SetValue(ActionsProperty, new ObservableCollection<IAction>());
 		}
     }
 }
