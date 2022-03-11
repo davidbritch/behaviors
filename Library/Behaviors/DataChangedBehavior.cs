@@ -5,27 +5,11 @@ using Xamarin.Forms;
 namespace Behaviors
 {
 	[Preserve(AllMembers = true)]
-	[ContentProperty("Actions")]
-	public sealed class DataChangedBehavior : BehaviorBase<VisualElement>
+	public sealed class DataChangedBehavior : BehaviorPropertiesBase
 	{
-		public static readonly BindableProperty ActionsProperty = BindableProperty.Create("Actions", typeof(ActionCollection), typeof(DataChangedBehavior), null);
-		public static readonly BindableProperty BindingProperty = BindableProperty.Create("Binding", typeof(object), typeof(DataChangedBehavior), null, propertyChanged: OnValueChanged);
+		public static readonly BindableProperty BindingProperty = BindableProperty.Create(nameof(Binding), typeof(object), typeof(DataChangedBehavior), null, propertyChanged: OnValueChanged);
 		public static readonly BindableProperty ComparisonProperty = BindableProperty.Create("Comparison", typeof(ComparisonCondition), typeof(DataChangedBehavior), ComparisonCondition.Equal, propertyChanged: OnValueChanged);
-		public static readonly BindableProperty ValueProperty = BindableProperty.Create("Value", typeof(object), typeof(DataChangedBehavior), null, propertyChanged: OnValueChanged);
-
-		public ActionCollection Actions
-		{
-			get
-			{
-				var actionCollection = (ActionCollection)GetValue(ActionsProperty);
-				if (actionCollection == null)
-				{
-					actionCollection = new ActionCollection();
-					SetValue(ActionsProperty, actionCollection);
-				}
-				return actionCollection;
-			}
-		}
+		public static readonly BindableProperty ValueProperty = BindableProperty.Create(nameof(Value), typeof(object), typeof(DataChangedBehavior), null, propertyChanged: OnValueChanged);
 
 		public object Binding
 		{

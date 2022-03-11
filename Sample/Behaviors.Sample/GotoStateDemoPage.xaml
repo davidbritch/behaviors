@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Behaviors.Sample" xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors" x:Class="Behaviors.Sample.GotoStateDemoPage" Title="GotoState Demo">
+    <StackLayout Margin="10">
+        <StackLayout>
+            <Label Text="Goto VisualState when Event Fires" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="Select an item in the Picker:" />
+            <Picker x:Name="picker" Title="Colours">
+                <Picker.Items>
+                    <x:String>Red</x:String>
+                    <x:String>Blue</x:String>
+                    <x:String>Green</x:String>
+                </Picker.Items>
+                <Picker.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="SelectedIndexChanged">
+                        <behaviors:GoToStateAction StateName="PickerItemSelected" TargetObject="{x:Reference stackLayout}" />
+                    </behaviors:EventHandlerBehavior>
+                </Picker.Behaviors>
+            </Picker>
+            <Label Text="Selecting an item in the Picker will enable content below." />
+        </StackLayout>
+        <local:Separator />
+        <StackLayout x:Name="stackLayout" IsVisible="false">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="PickerStates">
+                    <VisualState Name="PickerItemSelected">
+                        <VisualState.Setters>
+                            <Setter Property="IsVisible" Value="true" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="None" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Label Text="Goto VisualState when Data Changes" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="Enter text:"
+                   FontSize="Large" />
+            <Entry x:Name="entry"
+                   FontSize="Large"
+                   Margin="30, 0, 0, 0">
+               <Entry.Behaviors>
+                    <behaviors:DataChangedBehavior Binding="{Binding Path=Text, Source={x:Reference entry}}" ComparisonCondition="NotEqual" Value="Xamarin">
+                        <behaviors:GoToStateAction StateName="Invalid" TargetObject="{x:Reference helpLabel}" />
+                        <behaviors:GoToStateAction StateName="Invalid" TargetObject="{x:Reference submitButton}" />
+                    </behaviors:DataChangedBehavior>    
+                    <behaviors:DataChangedBehavior Binding="{Binding Path=Text, Source={x:Reference entry}}" ComparisonCondition="Equal" Value="Xamarin">
+                        <behaviors:GoToStateAction StateName="Valid" TargetObject="{x:Reference helpLabel}" />
+                        <behaviors:GoToStateAction StateName="Valid" TargetObject="{x:Reference submitButton}" />
+                    </behaviors:DataChangedBehavior>                
+                </Entry.Behaviors>
+            </Entry>
+            <Label x:Name="helpLabel"
+                   Text="Enter Xamarin (case sensitive) in the entry above.">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="ValidityStates">
+                        <VisualState Name="Valid">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Invalid" />
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Label>
+            <Button x:Name="submitButton"
+                    Text="Submit"
+                    IsEnabled="false"
+                    FontSize="Large"
+                    Margin="0, 20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="ValidityStates">
+                        <VisualState Name="Valid">
+                            <VisualState.Setters>
+                                <Setter Property="IsEnabled" Value="True" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Invalid">
+                            <VisualState.Setters>
+                                <Setter Property="IsEnabled" Value="False" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
